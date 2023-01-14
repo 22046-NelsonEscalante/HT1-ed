@@ -23,6 +23,11 @@ public class DriverProgram {
         }
     }
 
+    /***
+     * Este método imprime el menú en pantalla para que el usuario interactúe con el programa.
+     * @param in El Scanner que permite la entrada de datos del usuario para navegar en el menú.
+     * @param radio La radio que está modificando el usuario.
+     */
     public static void displayMenu(Scanner in, IRadio radio){
         int choice;
         String status;
@@ -80,6 +85,10 @@ public class DriverProgram {
         }
     }
 
+    /***
+     * Este método cambia el estado de la radio de encendido a apagado y viceversa.
+     * @param radio La radio que está modificando el usuario.
+     */
     public static void powerButton(IRadio radio){
         if (radio.isOn()){
             radio.off();
@@ -88,6 +97,10 @@ public class DriverProgram {
         }
     }
 
+    /***
+     * Este método cambia la banda de la radio de AM a FM y viceversa.
+     * @param radio La radio que está modificando el usuario.
+     */
     public static void changeBand(IRadio radio){
         if (radio.getFrequence() == "AM"){
             try {
@@ -104,6 +117,12 @@ public class DriverProgram {
         }
     }
 
+    /***
+     * Método para aumentar la frecuencia que sintoniza la radio.
+     * Se puede ingresar un múltiplo para aumentar en grandes cantidades.
+     * @param in Scanner para que el usuario ingrese datos.
+     * @param radio La radio que está modificando el usuario.
+     */
     public static void tuneUp(Scanner in, IRadio radio){
         System.out.println("Ingrese un múltiplo para aumentar la frecuencia");
         System.out.println("(Nota: La frecuencia AM aumenta de a 10, y la FM de a 0.2)");
@@ -114,6 +133,12 @@ public class DriverProgram {
         }
     }
 
+    /***
+     * Método para disminuir la frecuencia que sintoniza la radio.
+     * Se puede ingresar un múltiplo para disminuir en grandes cantidades.
+     * @param in Scanner para que el usuario ingrese datos.
+     * @param radio La radio que está modificando el usuario.
+     */
     public static void tuneDown(Scanner in, IRadio radio){
         System.out.println("Ingrese un múltiplo para disminuir la frecuencia");
         System.out.println("(Nota: La frecuencia AM disminuye de a 10, y la FM de a 0.2)");
@@ -124,6 +149,11 @@ public class DriverProgram {
         }
     }
 
+    /***
+     * Método para guardar una emisora en un botón, del 1 al 12.
+     * @param in Scanner para que el usuario ingrese datos.
+     * @param radio La radio que está modificando el usuario.
+     */
     public static void saveFreq(Scanner in, IRadio radio){
         System.out.println("Ingrese un número del 1 al 12. La frecuencia actual se guardará en el espacio asignado.");
         int slot = Integer.parseInt(in.nextLine());
@@ -139,6 +169,11 @@ public class DriverProgram {
         }
     }
 
+    /***
+     * Método para seleccionar una emisora guardada en un botón, del 1 al 12.
+     * @param in Scanner para que el usuario ingrese datos.
+     * @param radio La radio que está modificando el usuario.
+     */
     public static void selectSave(Scanner in, IRadio radio){
         System.out.println("Ingrese un número entre 1 y 12 para seleccionar la frecuencia guardada.");
         int slot = Integer.parseInt(in.nextLine());
