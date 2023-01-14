@@ -43,7 +43,7 @@ public class Radio implements IRadio{
 
     @Override
     public void setFrequence(String freq) throws Exception{
-        if (!(freq == "AM") || !(freq == "FM")){
+        if (!(freq == "AM") && !(freq == "FM")){
             throw new Exception();
         } else {
             this.band = freq;

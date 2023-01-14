@@ -42,8 +42,11 @@ public class DriverProgram {
                 tuneDown(in, radio);
                 break;
             case 5:
+                saveFreq(in, radio);
             case 6:
             case 7:
+                System.exit(0);
+                break;
             default:
                 System.out.println("Por favor, ingrese un valor entre 1 y 7.");
                 break;     
@@ -91,6 +94,36 @@ public class DriverProgram {
 
         for (int i = 0; i < choice; i++){
             radio.Backward();
+        }
+    }
+
+    public static void saveFreq(Scanner in, IRadio radio){
+        System.out.println("Ingrese un número del 1 al 12. La frecuencia actual se guardará en el espacio asignado.");
+        int slot = Integer.parseInt(in.nextLine());
+
+        if ((slot < 1) || (slot > 12)){
+            System.out.println("Por favor, ingrese un valor entre 1 y 12.");
+        } else {
+            if (radio.getFrequence() == "AM") {
+                radio.saveAMStation(radio.getAMActualStation(), slot);
+            } else {
+                radio.saveFMStation(radio.getFMActualStation(), slot);
+            }
+        }
+    }
+
+    public static void selectSave(Scanner in, IRadio radio){
+        System.out.println("Ingrese un número entre 1 y 12 para seleccionar la frecuencia guardada.");
+        int slot = Integer.parseInt(in.nextLine());
+
+        if ((slot < 1) || (slot > 12)){
+            System.out.println("Por favor, ingrese un valor entre 1 y 12.");
+        } else {
+            if (radio.getFrequence() == "AM") {
+                radio.setAMActualStation(radio.getAMSlot(slot));
+            } else {
+                radio.setFMActualStation(radio.getFMSlot(slot));
+            }
         }
     }
 }
