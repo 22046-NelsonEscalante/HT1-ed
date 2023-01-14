@@ -12,6 +12,16 @@ public class Radio implements IRadio{
     private int[] AMSlots;
     private double[] FMSlots;
 
+
+    public Radio(String status, String band, int AMStation, double FMStation, int[] AMSlots, double[] FMSlots){
+        this.status = status;
+        this.band = band;
+        this.AMStation = AMStation;
+        this.FMStation = FMStation;
+        this.AMSlots = AMSlots;
+        this.FMSlots = FMSlots;
+    }
+
     @Override
     public void on(){
         this.status = "ON";
